@@ -1,0 +1,223 @@
+/*Navbar*/
+nav{
+    width: 100vw;
+    padding: 10px;
+    border-radius: 0 0 100% 100%;
+    background-color: #343a40;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 99;
+    transition: all 0.5s;
+}
+nav a span {
+    color: rgb(238, 190, 13);
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+.navbar-icon{
+    color: rgb(238, 190, 13);
+    font-size: 35px;
+}
+.hidden-navbar {
+    transform: translateY(-200px);
+    transition: all 0.5s;
+}
+/*Navbar*/
+
+/*Custom Scrollbar*/
+body::-webkit-scrollbar {
+    background-color: #343a40;
+    width: 0.5em;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(238, 190, 13);
+    border-radius: 100px;
+    transition: all 0.5s;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(238, 190, 13);
+}
+/*Custom Scrollbar end*/
+
+/*Add Pet Menu*/
+.add-menu{
+text-align: left;
+position: fixed;
+left: 25vw;
+width: 50vw;
+height: 85vh;
+margin-top: 5vh;
+background-color: #343a40;
+z-index: 99;
+border-radius: 10px;
+transition: all 0.5s;
+}
+
+.add-menu h1{
+    text-align: center;
+    color: rgb(238, 190, 13);
+}
+
+.add-menu form div{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-menu form div input{
+    margin-left: 10px;
+    border-radius: 10px;
+}
+#picture{
+    border-radius: none;
+    background-color: white;
+}
+.add-menu form div label{
+    color: white;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.show-add-menu {
+display: inline;
+}
+    
+.hide-add-menu{
+display: none;
+}
+
+#close-add-menu{
+color: rgb(238, 190, 13);
+font-size: 30px;
+}
+#submitBtt {
+    background-color: rgb(238, 190, 13);
+    margin-left: 10px;
+    border-radius: 10px;
+    border-width: 0;
+    padding: 5px 10px 5px 10px;
+}
+
+#pet-registered{
+    color: greenyellow;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.blur{
+    filter: blur(20px);
+    transition: all 0.5s;
+}
+/*Title, Button and Search*/
+.main-title{
+    color: rgb(238, 190, 13);
+}
+.search-and-button{
+    margin-top: 8vh;
+    padding-bottom: 10vh;
+}
+.title-and-button{
+    padding-top: 20vh;
+}
+
+.title-and-button > h1{
+    margin-bottom: 5vh;
+}
+
+.title-button-and-search{
+    background-image: url(https://res.cloudinary.com/dgiqi5urn/image/upload/v1663014195/pet%20finder/408984_euqpp7.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}  
+/*Animal Type Filter*/
+
+.animaltype-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10vh;
+}
+
+.button-card{
+    padding: 10%;
+    border: solid;
+    border-color: rgb(238, 190, 13);
+    border-width: 2px;
+    border-radius: 10%;
+    background-color: #343a40;
+    transition: all 0.5s;
+}
+
+.filter-icons{
+    font-size: 80px;
+    color: rgb(238, 190, 13);
+    transition: all 0.5s;
+}
+
+.filter-text{
+    color: rgb(238, 190, 13);
+    transition: all 0.5s;
+}
+
+.button-card:hover{
+    border-color: #343a40;
+    background-color: rgb(238, 190, 13);
+}
+
+.button-card:hover .filter-icons{
+    color: #343a40;
+}
+
+.button-card:hover .filter-text{
+    color: #343a40;
+}
+
+/*Card grid */
+#card-title{
+    color: rgb(238, 190, 13);
+}
+.card-grid{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 2rem;
+}
+
+.card-grid > div{
+    margin: 1rem;
+    background-color: #343a40;
+    color: rgb(206, 205, 205);
+    border: none;
+}
+
+.animals-container{
+    margin-top: 10vh;
+}
+
+
+
+@media (max-width: 1000px) {
+    .card-grid{
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .card-grid{
+        grid-template-columns: 100%;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .animaltype-container{
+        display: grid;
+        grid-template-columns: 30% 30%;
+    }
+}
+
+@media (max-width: 369px){
+    .animals{
+        width: 80vw !important;
+    }
+}

@@ -1,0 +1,131 @@
+<%- include('templates/header', {siteTitle: 'Index'}); %>
+<%- include('templates/navbar'); %>
+
+<!--Add a pet menu-->
+<div class="text-center">
+  <div class="add-menu hide-add-menu" id="addMenu">
+    <i class="fa-sharp fa-solid fa-circle-xmark" id="close-add-menu"></i>
+    <h1>Register Pet</h1>
+
+    <form action="/" method="POST" enctype="multipart/form-data">
+
+     
+        <div>
+        <label>Name</label>
+        <input type="text" required name="name"></input>
+      </div>
+
+      <div>
+        <label>Age</label>
+        <input type="number" required name="age"></input>
+      </div>
+      
+      <div>
+      <label>Color</label>
+      <input type="text" required name="color"></input>
+    </div>
+    <div>
+      <label>Animal</label>
+      <input type="text" required name="animal"></input>
+    </div>
+
+      <div class="">
+        <label for="image">Picture</label>
+        <input type="file" name="image" id="picture" required></input>
+      </div>
+      <div class="">
+      <label for="exampleFormControlTextarea1">Description</label>
+      <textarea class="" id="exampleFormControlTextarea1" rows="3" maxlength="100" required
+        name="description"></textarea>
+      </div>
+      <button type="submit" id="submitBtt">Add</button>
+      <p class="pet-registered hide-add-menu" id="pet-registered">Pet Registered! Reloading Page...</p>
+    </form>
+
+  </div>
+<!--Add a pet menu End-->
+<div id="blur-container" class="">
+<!--Title, Search and categories-->
+<div class="title-button-and-search" id="welcome">
+<div class="title-and-button">
+<h1 class="text-center main-title">Welcome to Pet Finder</h1>
+<button class="btn btn-warning" id="addPetBtt">Add your pet to the Database!</button>
+</div>
+
+<form class="form-inline d-flex flex-row justify-content-center search-and-button" onsubmit="return false">
+  <input class="form-control m-2" type="search" placeholder="Search" aria-label="Search" style="width: 50vw;" id="searchbar">
+  <button class="btn btn-success m-2" type="submit" onclick="search_animal()">Search</button>
+</form>
+</div>
+
+
+<h2 class="d-flex justify-content-center mt-5">What are you looking for?</h2>
+<div class="animaltype-container">
+
+  <div class="filter-cards p-3" style="width: 8rem;" id="dogCard" onclick="handleAllCard()">
+    <button class="button-card">
+      <i class="fa-solid fa-paw filter-icons"></i>
+      <div class="card-body">
+        <p class="card-text filter-text">All</p>
+      </div>
+    </button>
+  </div>
+
+  <div class="filter-cards p-3" style="width: 8rem;" id="dogCard" onclick="handleDogCard()">
+    <button class="button-card">
+      <i class="fa-solid fa-dog filter-icons"></i>
+      <div class="card-body">
+        <p class="card-text filter-text">Dogs</p>
+      </div>
+    </button>
+  </div>
+
+  <div class="filter-cards p-3" style="width: 8rem;" id="catCard" onclick="handleCatCard()">
+    <button class="button-card">
+      <i class="fa-solid fa-cat filter-icons"></i>
+      <div class="card-body">
+        <p class="card-text filter-text">Cats</p>
+      </div>
+    </button>
+  </div>
+
+  <div class="filter-cards p-3" style="width: 8rem;" id="otherCard" onclick="handleOtherCard()">
+    <button class="button-card">
+      <i class="fa-solid fa-horse filter-icons"></i>
+      <div class="card-body">
+        <p class="card-text filter-text">Other</p>
+      </div>
+    </button>
+  </div>
+
+</div>
+<!--Title, Search and categories End-->
+
+    <!--Card rendering with regex for capitalization-->
+    <div class="container">
+    <div class="card-grid animals-container" id="containerDiv">
+      <% petArray.forEach(element=> { %>
+        <div class="card animals" style="width: 20rem;" id="card">
+          <img class="card-img-top" src="img/<%= element.path %>" alt="Card image cap" width="250" height="250">
+          <div class="card-body">
+            <h3 id="card-title">
+              <%= element.name.replace(/\w/, c=> c.toUpperCase()) %>, the <span class="animalType"><%= element.animal.replace(/\w/, c=>
+                  c.toUpperCase()) %></span></h3>
+                  <h5>• Age: <%= element.age %> y/o
+                  </h5>
+                  <h5>• Color: <%= element.color.replace(/\w/, c=> c.toUpperCase()) %></h5>
+                  <p class="card-text">
+                    <%= element.description.replace(/\w/, c=> c.toUpperCase()) %>
+                  </p>
+          </div>
+        </div>
+        <% }) %>
+
+        
+
+          </div>
+          </div>
+          </div>
+    <!--Card Rendering End-->
+
+<%- include('templates/footer'); %>
