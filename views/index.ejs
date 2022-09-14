@@ -106,7 +106,7 @@
     <div class="card-grid animals-container" id="containerDiv">
       <% petArray.forEach(element=> { %>
         <div class="card animals" style="width: 20rem;" id="card">
-          <img class="card-img-top" src="img/<%= element.path %>" alt="Card image cap" width="250" height="250">
+          <img class="card-img-top" src="<%= element.path %>" alt="Card image cap" width="250" height="250">
           <div class="card-body">
             <h3 id="card-title">
               <%= element.name.replace(/\w/, c=> c.toUpperCase()) %>, the <span class="animalType"><%= element.animal.replace(/\w/, c=>

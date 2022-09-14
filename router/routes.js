@@ -3,6 +3,15 @@ const router = express.Router();
 const Pet = require("../models/pet")
 const multer = require("multer");
 const { application } = require("express");
+const cloudinary = require("cloudinary").v2
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+cloudinary.config({ 
+    cloud_name: process.env.CLOUDINARY_USER_NAME, 
+    api_key: process.env.CLOUDINARY_API_KEY, 
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+    secure: true
+  });
+
 
 router.get('/', async (req, res) => {
     try {
@@ -17,33 +26,28 @@ router.get('/', async (req, res) => {
     }
   })
 
-const fileStorageEngine = multer.diskStorage({
-destination: (req, file, cb) => { //Handling destination
-    cb(null, "public/img")
-},
-
-filename: (req, file, cb) =>{
-    cb(null, Date.now() + "--" + file.originalname) //Creating unique image name
-}
-    
-})
+const fileStorageEngine = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+      folder: "DEV",
+    },
+  });
 
 const upload = multer({storage: fileStorageEngine})
 
 router.post("/", upload.single("image"), (req, res) => {
-
     let newPet = new Pet({
         name:  req.body.name,
         age: req.body.age,
         color: req.body.color,
         description: req.body.description,
         animal: req.body.animal,
-        path: req.file.filename
+        path: req.file.path
     })
     newPet.save();
     setTimeout(function() {
         res.redirect(req.originalUrl)
-    }, 3000);
+    }, 1500);
 })
   
 module.exports = router;
