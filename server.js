@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
 require('dotenv').config()
-const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.grmhuue.mongodb.net/?retryWrites=true&w=majority?directConnection=true`;
+const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.grmhuue.mongodb.net/?retryWrites=true&w=majority?`;
 const port = process.env.PORT || 3000;
 app.use('/', require('./router/routes'));
 
