@@ -130,8 +130,8 @@ font-size: 30px;
 .title-button-and-search{
     background-image: url(https://res.cloudinary.com/dgiqi5urn/image/upload/v1663014195/pet%20finder/408984_euqpp7.jpg);
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center center;
 }  
 /*Animal Type Filter*/
 
