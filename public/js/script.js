@@ -102,10 +102,4 @@ window.addEventListener("scroll", () => {
     lastScrollY = window.scrollY;
   }
 
-  //Hide back to top button on welcome section
-  if (window.scrollY > 812) {
-    backToTop.classList.remove("hidden-button")
-  } else {
-    backToTop.classList.add("hidden-button")
-  }
 })
