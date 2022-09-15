@@ -16,7 +16,6 @@ cloudinary.config({
 router.get('/', async (req, res) => {
     try {
         const petArray = await Pet.find();
-        console.log(petArray)
         res.render("index", {
             petList: petArray,
             petArray

@@ -8,7 +8,6 @@ closeAddBtt.addEventListener("click", hideAddMenu);
 function displayAddMenu() {
     addPetMenu.classList.remove("hide-add-menu");
     addPetMenu.classList.add("show-add-menu");
-    console.log(blurToggle)
     blurToggle.classList.add("blur")
     }
 function hideAddMenu() {
@@ -19,8 +18,8 @@ function hideAddMenu() {
 
 //Display message when submiting a pet
 const petRegistered = document.getElementById("pet-registered");
-const submitBtt = document.getElementById("submitBtt");
-submitBtt.addEventListener("click", handleSubmitBtt);
+const submitBtt = document.getElementById("add-form");
+submitBtt.addEventListener("submit", handleSubmitBtt);
 function handleSubmitBtt() {
     petRegistered.classList.replace("hide-add-menu", "show-add-menu")
 }
